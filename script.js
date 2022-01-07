@@ -45,6 +45,15 @@ function displayLibrary() {
     }
 }
 
+function addNewBookInput() {
+    alert("hi there");
+}
+
+const newBookButton = document.querySelector(".newBookButton")
+newBookButton.addEventListener('click', () =>{
+    addNewBookInput();
+});
+
 // Adding some books manually
 lordOfTheRings = new Book("The lord of the rings", "J.R.R Tolkien", 299,false);
 lordOfTheFlies = new Book("Lord of the Flies", "William Golding", 224,false);
