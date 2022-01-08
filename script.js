@@ -1,4 +1,7 @@
 let myLibrary = [];
+const library = document.querySelector(".library");
+const newBook = document.querySelector(".newBook");
+const form = document.querySelector(".form");
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -15,7 +18,6 @@ function addBookToLibrary(book) {
 }
 
 function displayLibrary() {
-    const library = document.querySelector(".library");
     for (let i =0; i < myLibrary.length; i++){
         const newBook = document.createElement('div');
         newBook.setAttribute("id",i)
@@ -45,8 +47,47 @@ function displayLibrary() {
     }
 }
 
+function validateForm(){
+    alert("hi");
+}
+
 function addNewBookInput() {
-    alert("hi there");
+
+    const titleInput = document.createElement("input");
+    titleInput.setAttribute("type", "text");
+    titleInput.setAttribute("id", "titleInput");
+    titleInput.setAttribute("placeholder", "title");
+    form.appendChild(titleInput);
+
+    const authorInput = document.createElement("input");
+    authorInput.setAttribute("type", "text");
+    authorInput.setAttribute("id", "authorInput");
+    authorInput.setAttribute("placeholder", "author");
+    form.appendChild(authorInput);
+
+    const pagesInput = document.createElement("input");
+    pagesInput.setAttribute("type", "text");
+    pagesInput.setAttribute("id", "pagesInput");
+    pagesInput.setAttribute("placeholder", "pages");
+    form.appendChild(pagesInput);
+
+    const readInput = document.createElement("input");
+    readInput.setAttribute("type", "text");
+    readInput.setAttribute("id", "readInput");
+    readInput.setAttribute("placeholder", "read");
+    form.appendChild(readInput);
+
+    const submit = document.createElement("input");
+    submit.setAttribute("type", "submit");
+    submit.setAttribute("value", "Submit");
+    submit.addEventListener('click', () => {
+        test = document.getElementById("readInput").value;
+        alert(test);
+    });
+    form.appendChild(submit);
+
+    formPlaceholder.appendChild(form);
+    
 }
 
 const newBookButton = document.querySelector(".newBookButton")
@@ -63,4 +104,3 @@ addBookToLibrary(lordOfTheFlies);
 addBookToLibrary(dune);
 
 displayLibrary();
-
