@@ -13,6 +13,10 @@ function Book(title, author, pages, read) {
     }
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
@@ -40,9 +44,15 @@ function displayLibrary() {
         pages.textContent = myLibrary[i].pages
         newBook.appendChild(pages);
 
-        const read = document.createElement('div');
+        const read = document.createElement('button');
         read.setAttribute("class","read")
-        read.textContent = myLibrary[i].read
+        if(myLibrary[i].read) {
+            read.textContent = "read"
+        } else {
+            read.textContent = "not read"
+        }
+        read.setAttribute("id",i );
+        read.setAttribute("onClick", "toggle(this.id)")
         newBook.appendChild(read);
 
         const remove = document.createElement('button');
@@ -53,6 +63,11 @@ function displayLibrary() {
 
         library.appendChild(newBook);
     }
+}
+
+function toggle(bookIndex) {
+    myLibrary[bookIndex].toggleRead();
+    displayLibrary();
 }
 
 function removeBook(bookIndex) {
