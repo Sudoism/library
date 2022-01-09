@@ -18,6 +18,8 @@ function addBookToLibrary(book) {
 }
 
 function displayLibrary() {
+    library.textContent = '';
+    form.textContent = '';
     for (let i =0; i < myLibrary.length; i++){
         const newBook = document.createElement('div');
         newBook.setAttribute("id",i)
@@ -81,14 +83,17 @@ function addNewBookInput() {
     submit.setAttribute("type", "submit");
     submit.setAttribute("value", "Submit");
     submit.addEventListener('click', () => {
-        test = document.getElementById("readInput").value;
-        alert(test);
+        titleValue = document.getElementById("titleInput").value;
+        authorValue = document.getElementById("authorInput").value;
+        pagesValue = document.getElementById("pagesInput").value;
+        readValue = document.getElementById("readInput").value;
+        var newBookObject = new Book(titleValue, authorValue, pagesValue, readValue);
+        addBookToLibrary(newBookObject);
+        displayLibrary();
     });
     form.appendChild(submit);
-
-    formPlaceholder.appendChild(form);
-    
 }
+
 
 const newBookButton = document.querySelector(".newBookButton")
 newBookButton.addEventListener('click', () =>{
