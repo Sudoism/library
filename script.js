@@ -45,12 +45,19 @@ function displayLibrary() {
         read.textContent = myLibrary[i].read
         newBook.appendChild(read);
 
+        const remove = document.createElement('button');
+        remove.setAttribute("id", i);
+        remove.textContent="Remove";
+        remove.setAttribute("onClick", "removeBook(this.id)")
+        newBook.appendChild(remove);
+
         library.appendChild(newBook);
     }
 }
 
-function validateForm(){
-    alert("hi");
+function removeBook(bookIndex) {
+    myLibrary.splice(bookIndex, 1);
+    displayLibrary();
 }
 
 function addNewBookInput() {
