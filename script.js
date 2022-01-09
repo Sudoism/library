@@ -57,6 +57,7 @@ function displayLibrary() {
 
         const remove = document.createElement('button');
         remove.setAttribute("id", i);
+        remove.setAttribute("class","remove")
         remove.textContent="Remove";
         remove.setAttribute("onClick", "removeBook(this.id)")
         newBook.appendChild(remove);
@@ -80,6 +81,7 @@ function addNewBookInput() {
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("id", "titleInput");
+    titleInput.setAttribute("class", "title");
     titleInput.setAttribute("placeholder", "title");
     form.appendChild(titleInput);
 
