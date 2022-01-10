@@ -1,15 +1,32 @@
+* {
+    font-family:'Courier New';
+    font-size:14px;
+}
+
 .book {
     display:flex;
     justify-content: space-evenly;
-    width:700px;
+    gap:3px;
+    margin-bottom:3px;
 }
 
-.form {
-    width:500px;
+.newBook, .book, .form {
+    width: 700px;
 }
  
 .title, .author{
+    width: 250px;
+}
+
+#titleInput, #authorInput, #pagesInput{
     width: 200px;
+    margin-bottom:3px;
+}
+
+#readInput {
+    margin:0px;
+    margin-right:5px;
+    margin-bottom:3px;
 }
 
 .pages, .read, .remove{

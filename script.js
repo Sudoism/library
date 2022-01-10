@@ -85,11 +85,17 @@ function addNewBookInput() {
     titleInput.setAttribute("placeholder", "title");
     form.appendChild(titleInput);
 
+    const breakTitle = document.createElement("br");
+    form.appendChild(breakTitle)
+
     const authorInput = document.createElement("input");
     authorInput.setAttribute("type", "text");
     authorInput.setAttribute("id", "authorInput");
     authorInput.setAttribute("placeholder", "author");
     form.appendChild(authorInput);
+
+    const breakAuthor = document.createElement("br");
+    form.appendChild(breakAuthor)
 
     const pagesInput = document.createElement("input");
     pagesInput.setAttribute("type", "text");
@@ -97,11 +103,22 @@ function addNewBookInput() {
     pagesInput.setAttribute("placeholder", "pages");
     form.appendChild(pagesInput);
 
+    const breakPages = document.createElement("br");
+    form.appendChild(breakPages)
+
     const readInput = document.createElement("input");
-    readInput.setAttribute("type", "text");
+    readInput.setAttribute("type", "checkbox");
     readInput.setAttribute("id", "readInput");
-    readInput.setAttribute("placeholder", "read");
-    form.appendChild(readInput);
+    readInput.setAttribute("value", "readInput");
+    form.appendChild(readInput)
+
+    const readInputLabel = document.createElement("label");
+    readInputLabel.setAttribute("for", "readInput");
+    readInputLabel.textContent= "read";
+    form.appendChild(readInputLabel);
+
+    const breakRead = document.createElement("br");
+    form.appendChild(breakRead)
 
     const submit = document.createElement("input");
     submit.setAttribute("type", "submit");
@@ -110,12 +127,16 @@ function addNewBookInput() {
         titleValue = document.getElementById("titleInput").value;
         authorValue = document.getElementById("authorInput").value;
         pagesValue = document.getElementById("pagesInput").value;
-        readValue = document.getElementById("readInput").value;
+        readValue = document.getElementById("readInput").checked;
         var newBookObject = new Book(titleValue, authorValue, pagesValue, readValue);
         addBookToLibrary(newBookObject);
+        newBookButton.disabled = false;
         displayLibrary();
     });
     form.appendChild(submit);
+
+    //not able to bring up multiple forms for a new book
+    newBookButton.disabled = true;
 }
 
 
