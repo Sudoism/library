@@ -3,18 +3,16 @@ const library = document.querySelector(".library");
 const newBook = document.querySelector(".newBook");
 const form = document.querySelector(".form");
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.info = function() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
     }
-}
-
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
+    toggleRead() {
+        this.read = !this.read;
+    }
 }
 
 function addBookToLibrary(book) {
